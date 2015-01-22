@@ -24,6 +24,31 @@
   </tbody>
 </table>
 
+<%= link_to 'New Person', new_person_path %>
+
+<h1>Listing Organization</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Organization Name</th>
+      <th>Number of Employees</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organization.each do |organization| %>
+    <tr>
+      <td><%= organization.name %></td>
+      <td><%= organization.number_of_employees %></td>
+      <td><%= link_to 'Show', organization %></td>
+      <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+      <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <br>
 
-<%= link_to 'New Person', new_person_path %>
+<%= link_to 'New Organization', new_organization_path %>
